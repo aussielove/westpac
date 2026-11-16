@@ -1,0 +1,412 @@
+
+import { useState } from 'react'
+import '../styles/financialInsight.css'
+
+const spendingCategories = [
+  { name: 'Housing', amount: 1800, percentage: 43, color: '#D5002B', icon: '🏠' },
+  { name: 'Food & dining', amount: 1050, percentage: 25, color: '#269B70', icon: '🍽️' },
+  { name: 'Shopping', amount: 650, percentage: 16, color: '#E6B83F', icon: '🛍️' },
+  { name: 'Transport', amount: 400, percentage: 10, color: '#986443', icon: '🚗' },
+  { name: 'Other', amount: 250, percentage: 6, color: '#9299A0', icon: '📦' }
+]
+
+const transactions = [
+  { name: 'Woolworths', category: 'Food & dining', date: '16 Nov 2026', amount: -85.40 },
+  { name: 'Cafe Brisbane', category: 'Food & dining', date: '15 Nov 2026', amount: -24.50 },
+  { name: 'Translink', category: 'Transport', date: '14 Nov 2026', amount: -12.80 },
+  { name: 'Netflix', category: 'Other', date: '13 Nov 2026', amount: -25.99 },
+  { name: 'Shopping Centre', category: 'Shopping', date: '12 Nov 2026', amount: -96.00 }
+]
+
+const subscriptions = [
+  {
+    name: 'Netflix',
+    detail: 'No activity in 30 days. Still watching?',
+    amount: 25.99,
+    icon: '🎬',
+    warning: true
+  },
+  {
+    name: 'Spotify',
+    detail: 'Music streaming · Monthly',
+    amount: 13.99,
+    icon: '🎵'
+  },
+  {
+    name: 'iCloud+',
+    detail: 'Cloud storage · Monthly',
+    amount: 28.99,
+    icon: '☁️'
+  }
+]
+
+function FinancialInsights({ onBack, onAssistant }) {
+  const [monthlyReduction, setMonthlyReduction] = useState(100)
+
+  const yearlySavings = monthlyReduction * 12
+
+  const goalTarget = 10000
+  const currentGoalSavings = 4000
+  const remainingGoal = goalTarget - currentGoalSavings
+
+  const regularMonthlySavings = 300
+  const totalMonthlySavings = regularMonthlySavings + monthlyReduction
+
+  const monthsWithoutExtra = Math.ceil(
+    remainingGoal / regularMonthlySavings
+  )
+
+  const monthsWithExtra = Math.ceil(
+    remainingGoal / totalMonthlySavings
+  )
+
+  const monthsSaved = monthsWithoutExtra - monthsWithExtra
+
+  const subscriptionTotal = subscriptions.reduce(
+    (total, subscription) => total + subscription.amount,
+    0
+  )
+
+  return (
+    <main className="insights-page smart-budgeting-page">
+
+      {/* Page heading */}
+      <div className="budgeting-header">
+        <div>
+          <p className="eyebrow">YOUR MONEY, MADE CLEARER</p>
+          <h1>Smart Budgeting</h1>
+          <p className="description">
+            Understand your spending habits and find smarter ways
+            to make your money go further.
+          </p>
+        </div>
+
+        <div className="budgeting-month">
+          <span>Viewing period</span>
+          <strong>November 2026</strong>
+        </div>
+      </div>
+
+      <div className="insights-notice">
+        <span>ℹ</span>
+        Demonstration account — all financial data shown is fictional.
+      </div>
+
+      {/* Monthly spending overview */}
+      <section className="budget-section">
+        <div className="budget-section-heading">
+          <div>
+            <p className="eyebrow">NOVEMBER 2026</p>
+            <h2>Your monthly spending</h2>
+          </div>
+        </div>
+
+        <div className="monthly-budget-card">
+          <div className="monthly-budget-header">
+            <div>
+              <h2>$4,150</h2>
+              <span>of $4,800 monthly budget</span>
+            </div>
+
+            <div className="budget-left">
+              <strong>$650</strong>
+              <span>left to spend</span>
+            </div>
+          </div>
+
+          <div className="spending-stacked-bar">
+            {spendingCategories.map((category) => (
+              <div
+                key={category.name}
+                style={{
+                  width: `${category.percentage}%`,
+                  backgroundColor: category.color
+                }}
+                title={`${category.name}: $${category.amount}`}
+              />
+            ))}
+          </div>
+
+          <div className="budget-usage-labels">
+            <span>86.5% of budget used</span>
+            <span>13.5% remaining</span>
+          </div>
+        </div>
+
+        <div className="budget-category-card">
+          <div className="budget-section-heading">
+            <div>
+              <p className="eyebrow">SPENDING BREAKDOWN</p>
+              <h2>Where your money goes</h2>
+            </div>
+          </div>
+
+          <div className="budget-category-list">
+            {spendingCategories.map((category) => (
+              <div className="budget-category-item" key={category.name}>
+                <div className="budget-category-top">
+                  <div className="budget-category-name">
+                    <span
+                      className="category-colour-dot"
+                      style={{ backgroundColor: category.color }}
+                    />
+                    <span>{category.icon}</span>
+                    <strong>{category.name}</strong>
+                  </div>
+
+                  <div className="budget-category-amount">
+                    <strong>
+                      ${category.amount.toLocaleString('en-AU')}
+                    </strong>
+                    <span>{category.percentage}%</span>
+                  </div>
+                </div>
+
+                <div className="budget-category-track">
+                  <div
+                    className="budget-category-fill"
+                    style={{
+                      width: `${category.percentage}%`,
+                      backgroundColor: category.color
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI savings recommendation */}
+      <section className="budget-ai-insight">
+        <div className="budget-ai-heading">
+          <span className="budget-ai-icon">✦</span>
+          <div>
+            <p className="eyebrow">YOUR PERSONAL FINANCIAL INSIGHT</p>
+            <h2>Small changes, more freedom.</h2>
+          </div>
+        </div>
+
+        <p>
+          Food & dining is your biggest flexible spending category.
+          Try spending $50 less each week on takeaway.
+          That's $200 back towards your holiday every month.
+        </p>
+
+        <div className="budget-ai-results">
+          <div>
+            <span>Weekly spending reduction</span>
+            <strong>$50</strong>
+          </div>
+
+          <div>
+            <span>Potential monthly savings</span>
+            <strong>$200</strong>
+          </div>
+        </div>
+
+        <small>
+          Why this suggestion? Food & dining accounts for 25% of
+          your spending. This is an illustrative AI-generated suggestion.
+        </small>
+      </section>
+
+      {/* Subscriptions */}
+      <section className="budget-section">
+        <div className="budget-section-heading">
+          <div>
+            <p className="eyebrow">RECURRING PAYMENTS</p>
+            <h2>Your subscriptions</h2>
+            <p className="budget-section-description">
+              Keep track of regular payments and monthly commitments.
+            </p>
+          </div>
+        </div>
+
+        <div className="subscriptions-card">
+          <div className="subscriptions-total">
+            <div>
+              <span>Estimated monthly subscriptions</span>
+              <h3>${subscriptionTotal.toFixed(2)}</h3>
+            </div>
+            <span className="subscription-count">
+              {subscriptions.length} subscriptions
+            </span>
+          </div>
+
+          {subscriptions.map((subscription) => (
+            <div className="subscription-item" key={subscription.name}>
+              <span className="subscription-icon">
+                {subscription.icon}
+              </span>
+
+              <div className="subscription-details">
+                <strong>{subscription.name}</strong>
+                <span>{subscription.detail}</span>
+
+                {subscription.warning && (
+                  <span className="subscription-warning">
+                    ⚠ Review this subscription
+                  </span>
+                )}
+              </div>
+
+              <strong>${subscription.amount.toFixed(2)}/month</strong>
+            </div>
+          ))}
+
+          <button
+            className="subscription-ai-button"
+            onClick={onAssistant}
+          >
+            ✦ Review with AI Assistant →
+          </button>
+        </div>
+      </section>
+
+      {/* Savings planner */}
+      <section className="savings-calculator">
+        <p className="eyebrow">INTERACTIVE SAVINGS PLANNER</p>
+        <h2>What if you saved a little more?</h2>
+
+        <p className="calculator-description">
+          Adjust your monthly spending reduction to see how much
+          extra you could save towards your goals.
+        </p>
+
+        <div className="calculator-amount">
+          <span>Your monthly savings target</span>
+          <h2>${monthlyReduction}</h2>
+        </div>
+
+        <input
+          className="savings-slider"
+          type="range"
+          min="0"
+          max="300"
+          step="10"
+          value={monthlyReduction}
+          onChange={(event) =>
+            setMonthlyReduction(Number(event.target.value))
+          }
+        />
+
+        <div className="slider-labels">
+          <span>$0</span>
+          <span>$300</span>
+        </div>
+
+        <div className="calculator-results">
+          <div>
+            <span>Extra savings per month</span>
+            <h3>${monthlyReduction.toLocaleString('en-AU')}</h3>
+          </div>
+          <div>
+            <span>Potential savings per year</span>
+            <h3>${yearlySavings.toLocaleString('en-AU')}</h3>
+          </div>
+        </div>
+
+        <div className="calculator-message">
+          ✦ {monthlyReduction === 0
+            ? 'Choose a monthly savings target to explore your potential.'
+            : `Saving $${monthlyReduction} monthly could add $${yearlySavings.toLocaleString('en-AU')} to your savings in one year!`}
+        </div>
+
+        <div className="goal-impact">
+          <p className="eyebrow">YOUR JAPAN HOLIDAY GOAL</p>
+
+          <div className="goal-impact-header">
+            <div>
+              <h3>${currentGoalSavings.toLocaleString('en-AU')}</h3>
+              <span>Saved so far</span>
+            </div>
+            <div className="goal-target">
+              <h3>${goalTarget.toLocaleString('en-AU')}</h3>
+              <span>Target amount</span>
+            </div>
+          </div>
+
+          <div className="goal-progress-track">
+            <div
+              className="goal-progress-fill"
+              style={{
+                width: `${(currentGoalSavings / goalTarget) * 100}%`
+              }}
+            ></div>
+          </div>
+
+          <p className="goal-progress-label">
+            40% completed · ${remainingGoal.toLocaleString('en-AU')} remaining
+          </p>
+
+          <div className="goal-timeline">
+            <div>
+              <span>Without extra savings</span>
+              <h3>{monthsWithoutExtra} months</h3>
+            </div>
+            <div>
+              <span>With your new target</span>
+              <h3>{monthsWithExtra} months</h3>
+            </div>
+          </div>
+
+          <div className="goal-result">
+            ✦ {monthlyReduction === 0
+              ? 'Set an extra monthly savings target to see how you could reach your goal sooner.'
+              : `You could reach your Japan holiday goal approximately ${monthsSaved} months sooner!`}
+          </div>
+
+          <p className="calculator-disclaimer">
+            Estimate based on an assumed regular $300 monthly contribution,
+            plus your selected extra savings. Actual results may vary.
+          </p>
+        </div>
+
+        <p className="calculator-disclaimer">
+          This is an illustrative calculation, not a guaranteed saving
+          or financial recommendation.
+        </p>
+      </section>
+
+      {/* Transactions */}
+      <section className="budget-section">
+        <div className="budget-section-heading">
+          <div>
+            <p className="eyebrow">RECENT ACTIVITY</p>
+            <h2>Your recent transactions</h2>
+          </div>
+        </div>
+
+        <div className="transaction-list">
+          {transactions.map((transaction, index) => (
+            <div className="transaction-item" key={index}>
+              <div className="transaction-icon">
+                {spendingCategories.find(
+                  (item) => item.name === transaction.category
+                )?.icon || '💳'}
+              </div>
+
+              <div className="transaction-details">
+                <strong>{transaction.name}</strong>
+                <span>{transaction.category} · {transaction.date}</span>
+              </div>
+
+              <strong className="transaction-amount">
+                -${Math.abs(transaction.amount).toFixed(2)}
+              </strong>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <p className="demo-disclaimer">
+        Cashflow IQ concept demonstration. Sample data and recommendations
+        are illustrative, not actual banking records or financial advice.
+      </p>
+
+    </main>
+  )
+}
+
+export default FinancialInsights

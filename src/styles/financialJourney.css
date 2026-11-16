@@ -1,0 +1,371 @@
+
+.financial-journey-page {
+  min-height: 100vh;
+  padding: 55px 10%;
+  background: #fafafa;
+  color: #37424A;
+}
+
+.financial-journey-page .page-header {
+  margin-bottom: 35px;
+}
+
+.financial-journey-page .page-header h1 {
+  color: #37424A;
+  font-size: 38px;
+  margin: 20px 0 10px;
+}
+
+.financial-journey-page .page-header p {
+  color: #4D4F53;
+  line-height: 1.7;
+}
+
+.financial-journey-page .journey-card {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.financial-journey-page .journey-card h2 {
+  color: #37424A;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.financial-journey-page .journey-card label {
+  display: block;
+  color: #4D4F53;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 18px 0 8px;
+}
+
+.financial-journey-page .journey-card input[type="text"],
+.financial-journey-page .journey-card input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #D5D6D2;
+  border-radius: 7px;
+  font-size: 14px;
+  color: #37424A;
+  background: white;
+}
+
+.financial-journey-page .journey-card input:focus {
+  outline: 2px solid #D5002B;
+  outline-offset: 2px;
+}
+
+/* Savings overview */
+
+.financial-journey-page .savings-overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.financial-journey-page .overview-card {
+  background: white;
+  padding: 25px;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.financial-journey-page .overview-card > span {
+  color: #777;
+  font-size: 13px;
+}
+
+.financial-journey-page .overview-card h2 {
+  color: #D5002B;
+  font-size: 27px;
+  margin: 12px 0;
+}
+
+.financial-journey-page .overview-card p {
+  color: #777;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.financial-journey-page .overview-progress {
+  height: 8px;
+  background: #e5e5e5;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.financial-journey-page .overview-progress > div {
+  height: 100%;
+  background: #D5002B;
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+
+/* Savings progress */
+
+.financial-journey-page .progress-heading,
+.financial-journey-page .savings-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 25px;
+  color: #4D4F53;
+  font-size: 13px;
+}
+
+.financial-journey-page .progress-track {
+  height: 12px;
+  background: #e5e5e5;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.financial-journey-page .progress-fill {
+  height: 100%;
+  background: #D5002B;
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+
+.financial-journey-page .journey-card h3 {
+  color: #D5002B;
+  font-size: 30px;
+  margin: 15px 0;
+}
+
+.financial-journey-page .journey-card input[type="range"] {
+  width: 100%;
+  margin: 20px 0;
+  accent-color: #D5002B;
+  cursor: pointer;
+}
+
+/* Multiple savings goals */
+
+.financial-journey-page .journey-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 35px 0 20px;
+  gap: 15px;
+}
+
+.financial-journey-page .journey-section-heading h2 {
+  color: #37424A;
+  font-size: 24px;
+}
+
+.financial-journey-page .journey-section-heading p {
+  color: #777;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.financial-journey-page .goal-count {
+  background: #fff3f5;
+  color: #D5002B;
+  padding: 9px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.financial-journey-page .goal-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.financial-journey-page .goal-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.financial-journey-page .goal-card-header h2 {
+  margin-bottom: 8px;
+}
+
+.financial-journey-page .goal-category {
+  color: #777;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+}
+
+.financial-journey-page .goal-status {
+  color: #279B65;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.financial-journey-page .goal-status.completed {
+  color: #279B65;
+}
+
+.financial-journey-page .remove-goal {
+  background: white;
+  border: 1px solid #D5D6D2;
+  color: #777;
+  padding: 7px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.financial-journey-page .remove-goal:hover {
+  color: #D5002B;
+  border-color: #D5002B;
+}
+
+.financial-journey-page .goal-amounts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.financial-journey-page .goal-amounts span,
+.financial-journey-page .goal-projection span {
+  color: #777;
+  font-size: 12px;
+}
+
+.financial-journey-page .goal-amounts h3 {
+  color: #D5002B;
+  font-size: 22px;
+  margin-top: 8px;
+}
+
+.financial-journey-page .goal-contribution {
+  margin-top: 30px;
+}
+
+.financial-journey-page .goal-contribution label {
+  display: block;
+  color: #37424A;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.financial-journey-page .goal-projection {
+  background: #fff3f5;
+  padding: 18px;
+  border-radius: 10px;
+  margin-top: 25px;
+}
+
+.financial-journey-page .goal-projection h3 {
+  color: #D5002B;
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+.financial-journey-page .goal-projection p {
+  color: #4D4F53;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Create a new goal */
+
+.financial-journey-page .create-goal-section {
+  margin-top: 35px;
+}
+
+.financial-journey-page .create-goal-section h2 {
+  margin-top: 12px;
+}
+
+.financial-journey-page .goal-form {
+  margin-top: 25px;
+}
+
+.financial-journey-page .goal-form label {
+  display: block;
+  color: #37424A;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 18px 0 8px;
+}
+
+.financial-journey-page .goal-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #D5D6D2;
+  border-radius: 7px;
+  background: white;
+  color: #37424A;
+  font-size: 14px;
+}
+
+.financial-journey-page .goal-form input:focus {
+  outline: 2px solid #D5002B;
+  outline-offset: 2px;
+}
+
+.financial-journey-page .goal-form button {
+  cursor: pointer;
+}
+
+.financial-journey-page .tile-action {
+  width: 100%;
+  padding: 14px 20px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #c8102e;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.financial-journey-page .tile-action:hover {
+  background: #a50d25;
+  transform: translateY(-1px);
+}
+
+.financial-journey-page .tile-action:active {
+  transform: translateY(0);
+}
+
+/* Responsive layout */
+
+@media (max-width: 768px) {
+  .financial-journey-page {
+    padding: 35px 6%;
+  }
+
+  .financial-journey-page .page-header h1 {
+    font-size: 30px;
+  }
+
+  .financial-journey-page .journey-card {
+    padding: 22px;
+  }
+
+  .financial-journey-page .savings-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .financial-journey-page .goal-list {
+    grid-template-columns: 1fr;
+  }
+
+  .financial-journey-page .journey-section-heading {
+    align-items: flex-start;
+  }
+}

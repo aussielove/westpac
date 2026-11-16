@@ -1,0 +1,650 @@
+/* ========================================
+   ACCOUNTS PAGE
+======================================== */
+
+.accounts-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 38px 35px 60px;
+  color: #303840;
+}
+
+.accounts-page .accounts-header {
+  margin-bottom: 22px;
+}
+
+.accounts-page .accounts-header h1 {
+  font-size: 34px;
+  color: #252d35;
+  margin: 6px 0;
+}
+
+.accounts-page .accounts-total-card {
+  background: linear-gradient(120deg, #252d35, #424d58);
+  color: white;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0 35px;
+}
+
+.accounts-page .accounts-total-card span {
+  color: #d5dce1;
+  font-size: 13px;
+}
+
+.accounts-page .accounts-total-card h2 {
+  font-size: 36px;
+  margin: 12px 0 7px;
+}
+
+.accounts-page .accounts-total-card p {
+  color: #c2cbd1;
+  font-size: 12px;
+  margin: 0;
+}
+
+.accounts-page .accounts-total-icon {
+  font-size: 45px;
+  color: white;
+}
+
+.accounts-page .accounts-section {
+  margin-bottom: 32px;
+}
+
+.accounts-page .accounts-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.accounts-page .accounts-section-heading h2 {
+  font-size: 21px;
+  margin: 4px 0;
+  color: #303840;
+}
+
+.accounts-page .accounts-section-heading > span {
+  font-size: 12px;
+  color: #858c94;
+}
+
+/* Account cards */
+
+.accounts-page .accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.accounts-page .account-card {
+  width: 100%;
+  text-align: left;
+  background: white;
+  border: 1px solid #e8eaed;
+  border-radius: 17px;
+  padding: 22px;
+  cursor: pointer;
+  color: #303840;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.accounts-page .account-card:hover,
+.accounts-page .account-card.selected {
+  border-color: #D5002B;
+  transform: translateY(-2px);
+}
+
+.accounts-page .account-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accounts-page .account-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  font-size: 21px;
+}
+
+.accounts-page .account-number {
+  color: #9299a0;
+  font-size: 11px;
+}
+
+.accounts-page .account-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 20px 0;
+}
+
+.accounts-page .account-card-info strong {
+  font-size: 16px;
+}
+
+.accounts-page .account-card-info span,
+.accounts-page .account-card-bottom span {
+  font-size: 12px;
+  color: #858c94;
+}
+
+.accounts-page .account-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.accounts-page .account-card-bottom strong {
+  font-size: 19px;
+}
+
+.accounts-page .account-view-link {
+  display: block;
+  color: #D5002B;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 18px;
+}
+
+/* Account activity */
+
+.accounts-page .account-activity-card {
+  background: white;
+  border: 1px solid #e8eaed;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 30px;
+}
+
+.accounts-page .account-close-button {
+  border: none;
+  background: #f3f4f5;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.accounts-page .account-activity-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-top: 1px solid #f0f1f2;
+  gap: 15px;
+}
+
+.accounts-page .account-activity-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.accounts-page .account-activity-item div span {
+  color: #858c94;
+  font-size: 11px;
+}
+
+.accounts-page .account-activity-item > strong {
+  font-size: 13px;
+}
+
+.accounts-page .positive-amount {
+  color: #16834b;
+}
+
+/* ========================================
+   ABN TAX CALCULATOR
+======================================== */
+
+.accounts-page .abn-tax-card {
+  display: block;
+  background: #fff;
+  border: 1px solid #e8eaed;
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 30px;
+}
+
+.accounts-page .abn-tax-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.accounts-page .abn-tax-icon {
+  background: #fff0f2;
+  border-radius: 15px;
+  padding: 16px;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.accounts-page .abn-tax-heading h2 {
+  font-size: 23px;
+  margin: 5px 0 8px;
+  color: #303840;
+}
+
+.accounts-page .abn-tax-heading p:not(.eyebrow) {
+  color: #737d86;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Step indicator */
+
+.accounts-page .tax-step-indicator {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  max-width: 440px;
+}
+
+.accounts-page .tax-step-indicator > div:not(.tax-step-line) {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #9299a0;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.accounts-page .tax-step-indicator > div > span {
+  display: grid;
+  place-items: center;
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  background: #f0f1f2;
+  font-weight: 700;
+}
+
+.accounts-page .tax-step-indicator .active {
+  color: #D5002B !important;
+}
+
+.accounts-page .tax-step-indicator .active > span {
+  background: #D5002B;
+  color: white;
+}
+
+.accounts-page .tax-step-indicator .completed > span {
+  background: #269B70;
+  color: white;
+}
+
+.accounts-page .tax-step-line {
+  height: 2px;
+  background: #e8eaed;
+  flex: 1;
+  margin: 0 13px;
+}
+
+/* Calculator form */
+
+.accounts-page .tax-form {
+  max-width: 680px;
+}
+
+.accounts-page .tax-form-intro h3,
+.accounts-page .tax-results-intro h3 {
+  font-size: 20px;
+  color: #303840;
+  margin: 0 0 7px;
+}
+
+.accounts-page .tax-form-intro p,
+.accounts-page .tax-results-intro p {
+  color: #858c94;
+  font-size: 13px;
+  margin: 0 0 24px;
+  line-height: 1.6;
+}
+
+.accounts-page .tax-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.accounts-page .tax-field label,
+.accounts-page .tax-gst-question > label {
+  color: #303840;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.accounts-page .tax-field input,
+.accounts-page .tax-field select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #dfe2e5;
+  border-radius: 9px;
+  padding: 0 13px;
+  background: #fff;
+  color: #303840;
+  font-size: 14px;
+  outline: none;
+}
+
+.accounts-page .tax-field input:focus,
+.accounts-page .tax-field select:focus {
+  border-color: #D5002B;
+  box-shadow: 0 0 0 3px rgba(213, 0, 43, 0.08);
+}
+
+.accounts-page .tax-field > span {
+  color: #9299a0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* GST question */
+
+.accounts-page .tax-gst-question {
+  background: #f8f9fa;
+  padding: 18px;
+  border-radius: 12px;
+  margin: 22px 0;
+}
+
+.accounts-page .tax-gst-options {
+  display: flex;
+  gap: 24px;
+  margin-top: 14px;
+}
+
+.accounts-page .tax-gst-options label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.accounts-page .tax-gst-options input {
+  accent-color: #D5002B;
+}
+
+.accounts-page .tax-gst-question p {
+  color: #858c94;
+  font-size: 11px;
+  line-height: 1.6;
+  margin: 12px 0 0;
+}
+
+/* Form feedback and button */
+
+.accounts-page .tax-error {
+  background: #fff0f1;
+  color: #b42336;
+  padding: 12px 14px;
+  border-radius: 9px;
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+.accounts-page .tax-primary-button {
+  width: 100%;
+  min-height: 48px;
+  border: none;
+  border-radius: 10px;
+  background: #D5002B;
+  color: white;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.accounts-page .tax-primary-button:hover {
+  background: #ad0023;
+}
+
+.accounts-page .tax-form-disclaimer {
+  color: #9299a0;
+  font-size: 10px;
+  line-height: 1.6;
+  margin-top: 14px;
+}
+
+/* Tax results */
+
+.accounts-page .tax-results-intro {
+  margin-bottom: 22px;
+}
+
+.accounts-page .tax-result-check {
+  display: grid;
+  place-items: center;
+  width: 37px;
+  height: 37px;
+  background: #e6f5ed;
+  color: #16834b;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.accounts-page .tax-profit-card {
+  background: #f7f8f9;
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 20px;
+}
+
+.accounts-page .tax-profit-card span,
+.accounts-page .tax-profit-card small {
+  color: #858c94;
+  font-size: 12px;
+}
+
+.accounts-page .tax-profit-card h2 {
+  color: #303840;
+  font-size: 32px;
+  margin: 9px 0;
+}
+
+.accounts-page .tax-breakdown {
+  border: 1px solid #e8eaed;
+  border-radius: 14px;
+  padding: 8px 20px;
+  margin-bottom: 20px;
+}
+
+.accounts-page .tax-breakdown > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f1f2;
+}
+
+.accounts-page .tax-breakdown > div:last-child {
+  border-bottom: none;
+}
+
+.accounts-page .tax-breakdown span {
+  color: #737d86;
+  font-size: 13px;
+}
+
+.accounts-page .tax-breakdown strong {
+  color: #303840;
+  font-size: 14px;
+}
+
+.accounts-page .tax-breakdown .tax-total-row strong {
+  color: #D5002B;
+  font-size: 18px;
+}
+
+/* Suggested tax savings */
+
+.accounts-page .tax-set-aside-card {
+  background: #fff5f6;
+  border: 1px solid #f6d9df;
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 20px;
+}
+
+.accounts-page .tax-set-aside-card > span {
+  display: block;
+  color: #737d86;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.accounts-page .tax-set-aside-card h2 {
+  color: #D5002B;
+  font-size: 32px;
+  margin: 7px 0;
+}
+
+.accounts-page .tax-set-aside-card small {
+  color: #9299a0;
+  font-size: 11px;
+}
+
+/* AI explanation */
+
+.accounts-page .tax-ai-explanation {
+  background: #f7f9fb;
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 20px;
+}
+
+.accounts-page .tax-ai-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #303840;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.accounts-page .tax-ai-title span {
+  color: #D5002B;
+  font-size: 20px;
+}
+
+.accounts-page .tax-ai-explanation p {
+  color: #626d77;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.accounts-page .tax-ai-explanation small {
+  display: block;
+  color: #9299a0;
+  font-size: 10px;
+  line-height: 1.6;
+  margin-top: 13px;
+}
+
+/* Tax assumptions */
+
+.accounts-page .tax-assumptions {
+  margin-bottom: 22px;
+  padding: 17px;
+  border: 1px solid #e8eaed;
+  border-radius: 12px;
+}
+
+.accounts-page .tax-assumptions strong {
+  font-size: 12px;
+  color: #303840;
+}
+
+.accounts-page .tax-assumptions ul {
+  padding-left: 18px;
+  margin: 12px 0 0;
+}
+
+.accounts-page .tax-assumptions li {
+  color: #858c94;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+/* Page disclaimer */
+
+.accounts-page .accounts-disclaimer {
+  text-align: center;
+  color: #9299a0;
+  font-size: 11px;
+  margin-top: 35px;
+}
+
+/* ========================================
+   RESPONSIVE ACCOUNTS PAGE
+======================================== */
+
+@media (max-width: 700px) {
+  .accounts-page {
+    padding: 25px 17px 100px;
+  }
+
+  .accounts-page .accounts-header h1 {
+    font-size: 28px;
+  }
+
+  .accounts-page .accounts-total-card {
+    padding: 23px;
+  }
+
+  .accounts-page .accounts-total-card h2 {
+    font-size: 29px;
+  }
+
+  .accounts-page .accounts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .accounts-page .account-card {
+    padding: 19px;
+  }
+
+  .accounts-page .abn-tax-card {
+    padding: 20px;
+  }
+
+  .accounts-page .abn-tax-icon {
+    font-size: 22px;
+    padding: 12px;
+  }
+
+  .accounts-page .tax-step-indicator > div:not(.tax-step-line) {
+    gap: 6px;
+    font-size: 10px;
+  }
+
+  .accounts-page .tax-step-indicator .tax-step-line {
+    margin: 0 8px;
+  }
+
+  .accounts-page .tax-breakdown {
+    padding: 6px 13px;
+  }
+
+  .accounts-page .tax-set-aside-card h2,
+  .accounts-page .tax-profit-card h2 {
+    font-size: 27px;
+  }
+}
