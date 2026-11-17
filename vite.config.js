@@ -5,6 +5,20 @@ import { fileURLToPath } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
 import geminiPlugin from './server/geminiPlugin.js'
 
+function fixCompactDashboard() {
+  return {
+    name: 'fix-compact-dashboard',
+    enforce: 'pre',
+    transform(code, id) {
+      if (!id.endsWith('/src/mockup/FullCashFlowIQ.js')) return null
+      return code.replace(
+        ']})]})]})]}),e("footer"',
+        ']})]})]})]})]}),e("footer"'
+      )
+    }
+  }
+}
+
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   // Load ALL env vars (empty prefix) for server-side use only.
@@ -13,6 +27,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [
+      fixCompactDashboard(),
       react(),
       // Tailwind is only imported by the app mockup (src/mockup/index.css).
       tailwindcss(),
