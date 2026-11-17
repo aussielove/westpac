@@ -122,3 +122,15 @@ Browser (aiAssistant.jsx)  ──POST /api/chat──▶  Vite server (server/ge
 ├── .env.example            # Template for your .env.local
 └── vite.config.js
 ```
+
+## Westpac app mockup (Cash Flow IQ)
+
+An interactive, App Store–style showcase of the Westpac app with the Cash Flow IQ / Shadow Private Banker features, living alongside the prototype above.
+
+- Run `npm install`, then `npm run dev` and open **`/mockup.html`** (the existing prototype stays at `/`).
+- Deep links open a feature directly, e.g. `/mockup.html#iq`, `#payments`, `#saferpay`, `#bills`, `#search`.
+- Source: `src/mockup/` (React + TypeScript + Tailwind CSS v4, icons from `lucide-react`). Type-check with `npm run typecheck`.
+
+Screens: Home, Accounts, Payments (Transfer / Pay someone / PayID / BPAY with the SaferPay scam check), Insights & tools, Cash flow, Bills calendar, Smart search, More, and the Cash Flow IQ hub (SafeBlock leak radar, Payday Autopilot & offset float, LVR repricing and bonus-rate products, Scam Shield with single-use virtual cards, and a scripted Westpac AI assistant).
+
+All data, savings and banking actions in the mockup are illustrative.
