@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 
 @theme {
@@ -18,6 +18,16 @@
   --color-line: #e6e6ee;
   --color-mist: #f3f4f8;
   --color-money: #1a8a3e;
+}
+
+.cash-app {
+  font-family: 'Manrope', var(--font-sans);
+}
+
+.cash-head {
+  font-family: 'Barlow Condensed', 'Anton', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 @layer base {
