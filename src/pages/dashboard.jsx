@@ -4,13 +4,27 @@ import '../styles/dashboard.css'
 
 function Dashboard({ onInsights, onJourney, onFraud, onAssistant }) {
   const [showNotifications, setShowNotifications] = useState(false)
+  const [showOverlapReminder, setShowOverlapReminder] = useState(true)
+  const [highlightOverlappingExpenses, setHighlightOverlappingExpenses] = useState(false)
 
   const transactions = [
     { name: 'Woolworths', category: 'Groceries', date: 'Today, 10:24 AM', amount: '-$85.40', icon: '🛒' },
+    { name: 'Spotify', category: 'Music streaming', date: 'Today, 9:40 AM', amount: '-$11.99', icon: '🎵' },
     { name: 'Cafe Brisbane', category: 'Dining & cafes', date: 'Today, 8:15 AM', amount: '-$24.50', icon: '☕' },
+    { name: 'Apple Music', category: 'Music streaming', date: 'Yesterday', amount: '-$10.99', icon: '🎵' },
     { name: 'Translink', category: 'Transport', date: 'Yesterday', amount: '-$12.80', icon: '🚆' },
     { name: 'Salary payment', category: 'Income', date: '14 Nov 2026', amount: '+$3,000.00', icon: '💰' },
   ]
+
+  const overlappingExpenses = transactions.reduce((groups, transaction) => {
+    if (transaction.amount.startsWith('-')) {
+      groups[transaction.category] = [...(groups[transaction.category] || []), transaction]
+    }
+
+    return groups
+  }, {})
+  const duplicateExpenseGroups = Object.entries(overlappingExpenses)
+    .filter(([, expenses]) => expenses.length > 1)
 
   const quickLinks = [
     {
@@ -122,9 +136,45 @@ function Dashboard({ onInsights, onJourney, onFraud, onAssistant }) {
           <span className="demo-label">DEMO DATA</span>
         </div>
 
-        <div className="home-transactions">
-          {transactions.map((transaction, index) => (
-            <div className="home-transaction" key={index}>
+        {showOverlapReminder && duplicateExpenseGroups.map(([category, expenses]) => (
+          <aside className="overlap-reminder" key={category} aria-label={`Possible overlap in ${category}`}>
+            <div className="overlap-reminder-icon" aria-hidden="true">↻</div>
+            <div className="overlap-reminder-content">
+              <p className="overlap-reminder-label">POSSIBLE OVERLAP · {category.toUpperCase()}</p>
+              <h3>{expenses.length} expenses in one category</h3>
+              <p>
+                {expenses.map((expense) => expense.name).join(' and ')} may cover similar services.
+                Check whether you meant to keep both.
+              </p>
+              <button
+                className="overlap-review-button"
+                onClick={() => setHighlightOverlappingExpenses(!highlightOverlappingExpenses)}
+                aria-controls="recent-transactions-list"
+                aria-pressed={highlightOverlappingExpenses}
+              >
+                {highlightOverlappingExpenses ? 'Stop highlighting' : 'Review transactions'} →
+              </button>
+            </div>
+            <button
+              className="overlap-dismiss-button"
+              onClick={() => setShowOverlapReminder(false)}
+              aria-label="Dismiss possible overlap reminder"
+            >
+              ×
+            </button>
+          </aside>
+        ))}
+
+        <div className="home-transactions" id="recent-transactions-list">
+          {transactions.map((transaction) => (
+            <div
+              className={`home-transaction ${
+                highlightOverlappingExpenses && duplicateExpenseGroups.some(
+                  ([, expenses]) => expenses.includes(transaction)
+                ) ? 'home-transaction-overlap' : ''
+              }`}
+              key={transaction.name}
+            >
               <div className="transaction-icon">
                 {transaction.icon}
               </div>

@@ -184,6 +184,86 @@
   border-radius: 20px;
 }
 
+.overlap-reminder {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  position: relative;
+  margin-bottom: 14px;
+  padding: 18px 48px 18px 18px;
+  background: #fff3f4;
+  border: 1px solid #f3c5ca;
+  border-radius: 14px;
+}
+
+.overlap-reminder-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  color: #D5002B;
+  background: white;
+  border-radius: 50%;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.overlap-reminder-content {
+  flex: 1;
+}
+
+.overlap-reminder-label {
+  margin: 0 0 6px;
+  color: #ad0023;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.overlap-reminder-content h3 {
+  margin: 0 0 6px;
+  color: #37424A;
+  font-size: 16px;
+}
+
+.overlap-reminder-content > p:not(.overlap-reminder-label) {
+  margin: 0;
+  color: #686868;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.overlap-review-button {
+  margin-top: 12px;
+  padding: 0;
+  color: #D5002B;
+  background: transparent;
+  border: 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.overlap-review-button:focus-visible,
+.overlap-dismiss-button:focus-visible {
+  outline: 2px solid #D5002B;
+  outline-offset: 3px;
+}
+
+.overlap-dismiss-button {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  color: #686868;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+}
+
 /* Recent transactions */
 
 .home-transactions {
@@ -203,6 +283,14 @@
 
 .home-transaction:last-child {
   border-bottom: none;
+}
+
+.home-transaction-overlap {
+  margin: 0 -12px;
+  padding-right: 12px;
+  padding-left: 12px;
+  background: #fff3f4;
+  border-radius: 8px;
 }
 
 .home-dashboard .transaction-icon {
@@ -429,6 +517,16 @@
 
   .home-transaction {
     gap: 10px;
+  }
+
+  .overlap-reminder {
+    gap: 10px;
+    padding-left: 12px;
+  }
+
+  .overlap-reminder-icon {
+    width: 32px;
+    height: 32px;
   }
 
   .home-dashboard .transaction-details span {
